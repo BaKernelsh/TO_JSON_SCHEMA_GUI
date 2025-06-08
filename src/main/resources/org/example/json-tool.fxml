@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.JsonToolController">
+    <TabPane prefWidth="800" prefHeight="600">
+        <!-- Tab 1: Generate Schema -->
+        <Tab text="Generate Schema" closable="false">
+            <HBox spacing="10.0">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <!-- Left: JSON Input -->
+                <VBox spacing="10" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                    <Label text="JSON Input:"/>
+                    <TextArea fx:id="jsonInputAreaGen" wrapText="true" VBox.vgrow="ALWAYS"/>
+                    <Button fx:id="loadJsonButtonGen" text="Load JSON from File"/>
+                    <Button fx:id="generateSchemaButton" text="Generate Schema"/>
+                </VBox>
+
+                <!-- Right: Output Schema -->
+                <VBox spacing="10" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                    <Label text="Generated Schema:"/>
+                    <TextArea fx:id="outputSchemaArea" wrapText="true" editable="false" VBox.vgrow="ALWAYS"/>
+                </VBox>
+            </HBox>
+        </Tab>
+
+        <!-- Tab 2: Validate JSON -->
+        <Tab text="Validate JSON" closable="false">
+            <VBox spacing="10.0">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <!-- Top row: JSON and Schema side-by-side -->
+                <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                    <!-- Left: JSON Input -->
+                    <VBox spacing="5.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        <Label text="JSON Input:"/>
+                        <TextArea fx:id="jsonInputAreaVal" wrapText="true" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+
+                    <!-- Right: JSON Schema -->
+                    <VBox spacing="5.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                        <Label text="JSON Schema:"/>
+                        <TextArea fx:id="schemaInputAreaVal" wrapText="true" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Bottom: Validate Button and Output -->
+                <VBox spacing="5.0">
+                    <HBox spacing="10.0" alignment="CENTER_LEFT">
+                        <Label text="On Unknown Keyword:"/>
+                        <ComboBox fx:id="onUnknownKeywordComboBox" prefWidth="150"/>
+                    </HBox>
+
+                    <Button fx:id="validateButton" text="Validate JSON"/>
+                    <Label text="Validation Output:"/>
+                    <TextArea fx:id="outputValidationArea" wrapText="true" editable="false" prefHeight="100"/>
+                </VBox>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</AnchorPane>
