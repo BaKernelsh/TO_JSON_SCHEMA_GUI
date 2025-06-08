@@ -20,6 +20,8 @@ public class JsonToolController {
     @FXML private TextArea outputSchemaArea;
     @FXML private Button loadJsonButtonGen;
     @FXML private Button generateSchemaButton;
+    @FXML private Button loadJsonButton;
+    @FXML private Button loadSchemaButton;
 
     // Validate JSON Tab
     @FXML private TextArea jsonInputAreaVal;
@@ -37,6 +39,8 @@ public class JsonToolController {
     @FXML
     private void initialize() {
         loadJsonButtonGen.setOnAction(e -> loadJsonFromFile(jsonInputAreaGen));
+        loadJsonButton.setOnAction(e -> loadJsonFromFile(jsonInputAreaVal));
+        loadSchemaButton.setOnAction(e -> loadJsonFromFile(schemaInputAreaVal));
 
         onUnknownKeywordComboBox.getItems().addAll(keywordOptions.keySet());
         onUnknownKeywordComboBox.setValue("Validation unsuccessful");

@@ -309,8 +309,11 @@ public class JSONValidator {
         verifiers.get("null").put("$schema", verify$schema);
         verifiers.get("null").put("type", verifyType);
 
+        verifiers.get("array").put("$schema", verify$schema);
+        verifiers.get("array").put("type", verifyType);
 
-
+        verifiers.get("string").put("$schema", verify$schema);
+        verifiers.get("string").put("type", verifyType);
 
 
     }
