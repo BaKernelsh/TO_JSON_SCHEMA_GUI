@@ -1,5 +1,6 @@
 package org.example.Validator;
 
+import org.example.Exception.JSONSchemaGeneratorException;
 import org.example.Generator.Generator;
 import org.example.JSONString;
 import org.example.JSONTN.*;
@@ -20,10 +21,14 @@ public class JSONValidator {
     }
 
     public boolean validateAgainstSchema(JSONTreeNode node, String schemaString) throws Exception {
-        JSONString schema = new JSONString(schemaString);
-        JSONObjectTN schemaRoot = (JSONObjectTN) generator.generateJsonTree(schema);
+        try {
+            JSONString schema = new JSONString(schemaString);
+            JSONObjectTN schemaRoot = (JSONObjectTN) generator.generateJsonTree(schema);
+            return validateAgainstSchema(node, schemaRoot);
 
-        return validateAgainstSchema(node, schemaRoot);
+        }catch(JSONSchemaGeneratorException e){
+            throw new JSONSchemaGeneratorException(e.getMessage() + " in schema.");
+        }
     }
 
     public boolean validateAgainstSchema(JSONTreeNode node, JSONObjectTN schema) throws Exception {
