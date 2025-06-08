@@ -39,13 +39,20 @@
                 <HBox spacing="10.0" VBox.vgrow="ALWAYS">
                     <!-- Left: JSON Input -->
                     <VBox spacing="5.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
-                        <Label text="JSON Input:"/>
+                        <HBox spacing="5.0">
+                            <Label text="JSON Input:"/>
+                            <Button fx:id="loadJsonButton" text="Load JSON from File"/>
+                        </HBox>
+
                         <TextArea fx:id="jsonInputAreaVal" wrapText="true" VBox.vgrow="ALWAYS"/>
                     </VBox>
 
                     <!-- Right: JSON Schema -->
                     <VBox spacing="5.0" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
-                        <Label text="JSON Schema:"/>
+                        <HBox spacing="5.0">
+                            <Label text="JSON Schema:"/>
+                            <Button fx:id="loadSchemaButton" text="Load JSON from File"/>
+                        </HBox>
                         <TextArea fx:id="schemaInputAreaVal" wrapText="true" VBox.vgrow="ALWAYS"/>
                     </VBox>
                 </HBox>
